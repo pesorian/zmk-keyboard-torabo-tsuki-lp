@@ -1,0 +1,26 @@
+/*
+ * Auto Mouse Layer snippet
+ *
+ * Activates layer 4 (mouse layer) automatically when the trackball is moved.
+ * The layer deactivates after 1000ms of inactivity.
+ * Any key press EXCEPT those at excluded-positions will also deactivate the layer.
+ *
+ * excluded-positions: mouse click keys in layer_0 (L layout positions 30, 31)
+ *   Position 30 = row2 col6  = left  side trackball click (mkp LCLK)
+ *   Position 31 = row2 col13 = right side trackball click (mkp RCLK)
+ */
+
+#include <input/processors.dtsi>
+
+/ {
+    auto_mouse_layer: auto_mouse_layer {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <2>;
+        require-prior-idle-ms = <200>;
+        excluded-positions = <30 31>;
+    };
+};
+
+&pointing_listener {
+    input-processors = <&auto_mouse_layer 4 1000>;
+};

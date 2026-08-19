@@ -1,0 +1,3 @@
+name: auto-mouse-layer
+append:
+  EXTRA_DTC_OVERLAY_FILE: auto-mouse-layer.overlay
