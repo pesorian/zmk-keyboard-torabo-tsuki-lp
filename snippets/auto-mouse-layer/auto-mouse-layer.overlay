@@ -8,7 +8,7 @@
  * excluded-positions: mouse click keys in layer_0 and layer_4
  *   Position 30, 31 = Thumb inner keys
  *   Position 27, 28 = D, F keys
- *   Position 34, 35 = K, L keys
+ *   Position 33, 34 = J, K keys
  */
 
 #include <input/processors.dtsi>
@@ -18,7 +18,7 @@
         compatible = "zmk,input-processor-temp-layer";
         #input-processor-cells = <2>;
         require-prior-idle-ms = <200>;
-        excluded-positions = <27 28 30 31 34 35>;
+        excluded-positions = <27 28 30 31 33 34>;
     };
 };
 
