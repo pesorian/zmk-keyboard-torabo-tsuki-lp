@@ -4,10 +4,22 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: sekigon-gonnoc
       url-base: https://github.com/sekigon-gonnoc
+    - name: nat-chan
+      url-base: https://github.com/nat-chan
   projects:
+    # 実行時設定可能な速度カーブ (custom-settings含めimport)
+    - name: zmk-module-runtime-accel
+      remote: nat-chan
+      revision: main
+      import: true
+    # importより優先: v0.3(Zephyr 3.5)互換パッチ済みフォークに固定
+    - name: zmk-feature-custom-settings
+      remote: nat-chan
+      revision: v0.3-compat
+    # cormoran fork (custom studio RPC対応) のnat-chanミラー
     - name: zmk
-      remote: zmkfirmware
-      revision: v0.3
+      remote: nat-chan
+      revision: 35bb5dafecd5931c432c74e1b630cf12097671e4
       import: app/west.yml
     - name: zmk-component-bmp-boost
       remote: sekigon-gonnoc
