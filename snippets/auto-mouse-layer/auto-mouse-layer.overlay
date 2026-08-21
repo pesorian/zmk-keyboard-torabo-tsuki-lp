@@ -5,9 +5,10 @@
  * The layer deactivates after 1000ms of inactivity.
  * Any key press EXCEPT those at excluded-positions will also deactivate the layer.
  *
- * excluded-positions: mouse click keys in layer_0 (L layout positions 30, 31)
- *   Position 30 = row2 col6  = left  side trackball click (mkp LCLK)
- *   Position 31 = row2 col13 = right side trackball click (mkp RCLK)
+ * excluded-positions: mouse click keys in layer_0 and layer_4
+ *   Position 30, 31 = Thumb inner keys
+ *   Position 27, 28 = D, F keys
+ *   Position 34, 35 = K, L keys
  */
 
 #include <input/processors.dtsi>
@@ -17,7 +18,7 @@
         compatible = "zmk,input-processor-temp-layer";
         #input-processor-cells = <2>;
         require-prior-idle-ms = <200>;
-        excluded-positions = <30 31>;
+        excluded-positions = <27 28 30 31 34 35>;
     };
 };
 
