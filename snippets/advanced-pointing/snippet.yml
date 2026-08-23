@@ -1,3 +1,3 @@
 name: "Advanced Pointing Features (Snipe, Inertia, Accel)"
 append:
-  - advanced-pointing.overlay
+  EXTRA_DTC_OVERLAY_FILE: advanced-pointing.overlay
