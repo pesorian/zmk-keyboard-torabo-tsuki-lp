@@ -1,0 +1,33 @@
+#include <mouse-gesture.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
+&zip_mouse_gesture {
+    stroke-size = <200>;
+    enable-eager-mode;
+    
+    // ジェスチャーパターンの定義
+    history_back {
+        pattern = <GESTURE_LEFT>;
+        bindings = <&kp LA(LEFT)>;
+    };
+
+    history_forward {
+        pattern = <GESTURE_RIGHT>;
+        bindings = <&kp LA(RIGHT)>;
+    };
+
+    close_tab {
+        pattern = <GESTURE_DOWN GESTURE_RIGHT>;
+        bindings = <&kp LC(W)>;
+    };
+
+    new_tab {
+        pattern = <GESTURE_DOWN GESTURE_LEFT>;
+        bindings = <&kp LC(T)>;
+    };
+};
+
+// 既存の入力リスナーにジェスチャープロセッサを追加
+&pointing_listener {
+    input-processors = <&zip_mouse_gesture>;
+};

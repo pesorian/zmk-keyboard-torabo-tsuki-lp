@@ -6,6 +6,10 @@ manifest:
       url-base: https://github.com/sekigon-gonnoc
     - name: nat-chan
       url-base: https://github.com/nat-chan
+    - name: kot149
+      url-base: https://github.com/kot149
+    - name: amgskobo
+      url-base: https://github.com/amgskobo
   projects:
     # 実行時設定可能な速度カーブ (custom-settings含めimport)
     - name: zmk-module-runtime-accel
@@ -38,6 +42,12 @@ manifest:
       revision: v0.2
     - name: zmk-feature-non-lipo-battery-management
       remote: sekigon-gonnoc
+      revision: main
+    - name: zmk-mouse-gesture
+      remote: kot149
+      revision: v1
+    - name: zmk-input-inertia
+      remote: amgskobo
       revision: main
   self:
     path: config

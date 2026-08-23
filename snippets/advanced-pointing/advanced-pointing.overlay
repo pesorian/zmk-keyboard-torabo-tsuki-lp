@@ -1,0 +1,35 @@
+#include <zmk-input-inertia/input/processor/input_inertia.dtsi>
+
+/ {
+    pointer_accel: pointer_accel {
+        compatible = "zmk,input-processor-runtime-accel";
+        #input-processor-cells = <0>;
+        instance-id = "pointer";
+        default-curve = <
+            100 1000
+            20000 1000
+        >;
+    };
+
+    scroll_accel: scroll_accel {
+        compatible = "zmk,input-processor-runtime-accel";
+        #input-processor-cells = <0>;
+        instance-id = "scroll";
+        default-curve = <
+            100 1000
+            20000 1000
+        >;
+    };
+
+    zip_scroll_inertia: zip_scroll_inertia {
+        compatible = "zmk,input-processor-inertia";
+        #input-processor-cells = <0>;
+
+        trigger-ms = <35>;
+        move-decay-factor-int = <0>; // Disabled for normal mouse move
+        scroll-decay-factor-int = <85>;
+        scroll-report-interval-ms = <65>;
+        scroll-threshold-start = <2>;
+        scroll-threshold-stop = <0>;
+    };
+};
