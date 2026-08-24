@@ -15,6 +15,15 @@
 #include <zmk/events/activity_state_changed.h>
 #include <zmk/events/split_peripheral_status_changed.h>
 #include <zmk/usb.h>
+#include <zmk/endpoints.h>
+
+#if IS_ENABLED(CONFIG_ZMK_POINTING) || IS_ENABLED(CONFIG_ZMK_MOUSE)
+// Wrapper to support older modules (like zmk-input-inertia) that call zmk_endpoint_send_mouse_report
+// on modern ZMK where it was renamed to zmk_endpoints_send_mouse_report
+int zmk_endpoint_send_mouse_report(void) {
+    return zmk_endpoints_send_mouse_report();
+}
+#endif
 
 LOG_MODULE_REGISTER(split_power_mgmt, CONFIG_ZMK_LOG_LEVEL);
 
