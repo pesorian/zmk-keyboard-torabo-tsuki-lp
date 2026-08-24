@@ -1,3 +1,4 @@
 name: advanced-pointing
 append:
   EXTRA_DTC_OVERLAY_FILE: advanced-pointing.overlay
+  EXTRA_CONF_FILE: advanced-pointing.conf
